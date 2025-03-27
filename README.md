@@ -7,7 +7,7 @@
 # Quick start
 
 ```bash
-git clone https://github.com/keycloakify/keycloakify-starter
+git clone https://github.com/nazarovctrl/keycloakify
 cd keycloakify-starter
 yarn install # Or use an other package manager, just be sure to delete the yarn.lock if you use another package manager.
 ```
