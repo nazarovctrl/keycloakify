@@ -10,6 +10,9 @@ import type { KcContext } from "./KcContext";
 import { useStyles } from "tss-react/mui"
 // import { SvgIcon, SvgIconProps } from '@mui/material';
 import Alert from '@mui/material/Alert';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Template(props: TemplateProps<KcContext, I18n>) {
     const {
@@ -90,6 +93,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                                         aria-controls="language-switch1"
                                     >
                                         {currentLanguage.label}
+                                        <FontAwesomeIcon  icon={faCaretDown} className={css({ marginLeft: '5px'})} />
                                     </button>
                                     <ul
                                         role="menu"
