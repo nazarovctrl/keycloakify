@@ -7,7 +7,17 @@ export default defineConfig({
     plugins: [
         react(),
         keycloakify({
-            accountThemeImplementation: "none"
+            accountThemeImplementation: "none",
+            kcContextExclusionsFtl: `
+                <@addToXKeycloakifyMessagesIfMessageKey str="doLogIn" />
+                <@addToXKeycloakifyMessagesIfMessageKey str="doRegister" />
+                <@addToXKeycloakifyMessagesIfMessageKey str="noAccount" />
+                <@addToXKeycloakifyMessagesIfMessageKey str="username" />
+                <@addToXKeycloakifyMessagesIfMessageKey str="usernameOrEmail" />
+                <@addToXKeycloakifyMessagesIfMessageKey str="password" />
+                <@addToXKeycloakifyMessagesIfMessageKey str="rememberMe" />
+                <@addToXKeycloakifyMessagesIfMessageKey str="doForgotPassword" />
+        `
         })
     ]
 });

@@ -1,0 +1,62 @@
+.header {
+    position: relative;
+    display: block;
+}
+
+.header-container {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    white-space: nowrap;
+}
+
+.login-container {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    width: 100%;
+    min-width: 260px;
+    max-width: 460px;
+    box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buga {
+    background: red;
+}   
+
+button#kc-current-locale-link {
+    color: #DDD !important;
+}
+
+button#kc-current-locale-link::after {
+    display: none !important;
+}
+
+@media only screen and (max-height: 798px) {
+    .login-container {
+        min-height: 400px;
+    }
+}
+
+@media only screen and (max-height: 625px) {
+    .login-container {
+        min-height: 600px;
+    }
+}
+
+@media only screen and (max-width: 880px) {
+    .header-container {
+        right: 15%;
+        top: 5%;
+    }
+}

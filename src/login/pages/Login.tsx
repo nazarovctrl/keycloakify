@@ -104,7 +104,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                         >
                             {!usernameHidden && (
                                 <div className={kcClsx("kcFormGroupClass")}>
-                                    <TextField 
+                                    <TextField
                                         sx={{
                                             width: "100%",
                                             minWidth: 300,
@@ -113,16 +113,16 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                         label={!realm.loginWithEmailAllowed
                                             ? msg("username")
                                             : !realm.registrationEmailAsUsername
-                                              ? msg("usernameOrEmail")
-                                              : msg("email")}
+                                                ? msg("usernameOrEmail")
+                                                : msg("email")}
                                         tabIndex={2}
-                                        variant="outlined" 
+                                        variant="outlined"
                                         name="username"
                                         defaultValue={login.username ?? ""}
                                         autoFocus
                                         autoComplete="username"
                                         error={messagesPerField.existsError("username", "password")}
-                                        helperText=    {messagesPerField.existsError("username", "password") && (
+                                        helperText={messagesPerField.existsError("username", "password") && (
                                             <span
                                                 id="input-error"
                                                 aria-live="polite"
@@ -137,81 +137,66 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
 
                             <div className={kcClsx("kcFormGroupClass")}>
                                 <FormControl sx={{ width: "100%" }} variant="outlined">
-                                        <InputLabel htmlFor="outlined-adornment-password">{msg("password")}</InputLabel>
-                                        <OutlinedInput
-                                            tabIndex={3}
-                                            name="password"
-                                            autoComplete="current-password"
-                                            error={messagesPerField.existsError("username", "password")}
-                                            id="outlined-adornment-password"
-                                            type={showPassword ? 'text' : 'password'}
-                                            endAdornment={
+                                    <InputLabel htmlFor="outlined-adornment-password">{msg("password")}</InputLabel>
+                                    <OutlinedInput
+                                        tabIndex={3}
+                                        name="password"
+                                        autoComplete="current-password"
+                                        error={messagesPerField.existsError("username", "password")}
+                                        id="outlined-adornment-password"
+                                        type={showPassword ? 'text' : 'password'}
+                                        endAdornment={
                                             <InputAdornment position="end">
                                                 <IconButton
-                                                aria-label={
-                                                    showPassword ? 'hide the password' : 'display the password'
-                                                }
-                                                onClick={() => setShowPassword(!showPassword)}
-                                                onMouseDown={e => e.preventDefault}
-                                                edge="end"
+                                                    aria-label={
+                                                        showPassword ? 'hide the password' : 'display the password'
+                                                    }
+                                                    onClick={() => setShowPassword(!showPassword)}
+                                                    onMouseDown={e => e.preventDefault}
+                                                    edge="end"
                                                 >
-                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
                                                 </IconButton>
                                             </InputAdornment>
-                                            }
-                                            label="Password"
-                                        />
+                                        }
+                                        label="Password"
+                                    />
 
                                     {usernameHidden && messagesPerField.existsError("username", "password") && (
                                         <FormHelperText id="standard-weight-helper-text">
-                                        <span
-                                            aria-live="polite"
-                                            dangerouslySetInnerHTML={{
-                                                __html: kcSanitize(messagesPerField.getFirstError("username", "password"))
-                                            }}
-                                        />
-                                        </FormHelperText>                     
-                                     )}
+                                            <span
+                                                aria-live="polite"
+                                                dangerouslySetInnerHTML={{
+                                                    __html: kcSanitize(messagesPerField.getFirstError("username", "password"))
+                                                }}
+                                            />
+                                        </FormHelperText>
+                                    )}
                                 </FormControl>
                             </div>
-
-                            <div className={kcClsx("kcFormGroupClass", "kcFormSettingClass")}>
+                            <div className="button-container">
                                 <div id="kc-form-options">
                                     {realm.rememberMe && !usernameHidden && (
-/*
-                                        <div className="checkbox">
-                                            <label>
-                                                <input
-                                                    tabIndex={5}
-                                                    id="rememberMe"
-                                                    name="rememberMe"
-                                                    type="checkbox"
-                                                    defaultChecked={!!login.rememberMe}
-                                                />{" "}
-                                                {msg("rememberMe")}
-                                            </label>
-                                        </div>
-*/
-                                    <FormControlLabel control={
-                                        <Checkbox 
-                                            defaultChecked={!!login.rememberMe}
-                                            tabIndex={5}
-                                            name="rememberMe"        
-                                        />} 
-                                        label={msg("rememberMe")} 
-                                    />
+                                        <FormControlLabel control={
+                                            <Checkbox
+                                                defaultChecked={!!login.rememberMe}
+                                                tabIndex={5}
+                                                name="rememberMe"
+                                            />}
+                                            label={msg("rememberMe")}
+                                        />
                                     )}
                                 </div>
-                                <div className={kcClsx("kcFormOptionsWrapperClass")}>
+                                <div>
                                     {realm.resetPasswordAllowed && (
                                         <span>
-                                            <Link 
+                                            <Link
                                                 sx={{
                                                     display: "inline-block",
                                                     position: "relative",
-                                                    top: 14
+                                                    top: 0
                                                 }}
-                                                tabIndex={6} 
+                                                tabIndex={6}
                                                 href={url.loginResetCredentialsUrl}>
                                                 {msg("doForgotPassword")}
                                             </Link>
@@ -223,13 +208,13 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                             <div id="kc-form-buttons" className={kcClsx("kcFormGroupClass")}>
                                 <input type="hidden" id="id-hidden-input" name="credentialId" value={auth.selectedCredential} />
                                 <Button
-                                    sx={{width:"100%", backgroundColor:"#155D8C"}}
+                                    sx={{ width: "100%", backgroundColor: "#155D8C" }}
                                     tabIndex={7}
-                                    variant="contained" 
+                                    variant="contained"
                                     disabled={isLoginButtonDisabled}
                                     name="login"
                                     type="submit"
-                                    
+
                                 >
                                     {msg("doLogIn")}
                                 </Button>
