@@ -54,7 +54,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
 
     const { isReadyToRender } = useInitialize({ kcContext, doUseDefaultCss });
 
-    const { css, theme } = useStyles();
+    const { css } = useStyles();
 
     if (!isReadyToRender) {
         return null;
@@ -173,10 +173,10 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                             {displayInfo && (
                                 <div
                                     className={css({
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        marginTop: theme.spacing(3)
+                                        // display: "flex",
+                                        // justifyContent: "center",
+                                        // alignItems: "center",
+                                        // marginTop: theme.spacing(1)
                                     })}
                                     >
                                     {infoNode}

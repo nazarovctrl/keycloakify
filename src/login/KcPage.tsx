@@ -4,7 +4,7 @@ import type { KcContext } from "./KcContext";
 import { useI18n } from "./i18n";
 import DefaultPage from "keycloakify/login/DefaultPage";
 import Template from "./Template";
-import { tss } from "tss-react/mui"
+// import { tss } from "tss-react/mui"
 
 const UserProfileFormFields = lazy(
     () => import("keycloakify/login/UserProfileFormFields")
@@ -26,7 +26,7 @@ export default function KcPage(props: { kcContext: KcContext }) {
 
     const { i18n } = useI18n({ kcContext });
 
-    const {classes} = useStyles(); 
+    // const {classes} = useStyles(); 
     return (
         <Suspense>
             {(() => {
@@ -104,13 +104,12 @@ export default function KcPage(props: { kcContext: KcContext }) {
     );
 }
 
-const useStyles = tss.create( ({  }) => ({
-    kcHtmlClass: {  },
-    kcBodyClass: { }
-  } satisfies { [key in ClassKey]?: unknown; }));
-/*
+// const useStyles = tss.create( ({  }) => ({
+//     kcHtmlClass: {  },
+//     kcBodyClass: { }
+//   } satisfies { [key in ClassKey]?: unknown; }));
+
 const classes = {
-    kcHtmlClass:"",
-    kcBodyClass:""
+    
 } satisfies { [key in ClassKey]?: string };
-*/
+
