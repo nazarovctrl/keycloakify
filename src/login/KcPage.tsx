@@ -35,7 +35,7 @@ export default function KcPage(props: { kcContext: KcContext }) {
                                         <Login
                                             {...{ kcContext, i18n, classes }}
                                             Template={Template}
-                                            doUseDefaultCss={true}
+                                            doUseDefaultCss={false}
                                     />);
                     case "login-otp.ftl": return (
                                             <LoginOtp
@@ -105,11 +105,9 @@ export default function KcPage(props: { kcContext: KcContext }) {
 }
 
 const useStyles = tss.create( ({  }) => ({
-  kcHtmlClass: {  },
-  kcBodyClass: {
-   backgroundColor: "#072030",  
-  }
-} satisfies { [key in ClassKey]?: unknown; }));
+    kcHtmlClass: {  },
+    kcBodyClass: { }
+  } satisfies { [key in ClassKey]?: unknown; }));
 /*
 const classes = {
     kcHtmlClass:"",
