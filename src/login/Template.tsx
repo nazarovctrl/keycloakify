@@ -63,46 +63,46 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div>
-            <header className="header">
-                <div className="header-container">
-                    {enabledLanguages.length > 1 && (
-                        <div className={kcClsx("kcLocaleMainClass")} id="kc-locale">
-                            <div id="kc-locale-wrapper" className={kcClsx("kcLocaleWrapperClass")}>
-                                <div id="kc-locale-dropdown" className={clsx("menu-button-links", kcClsx("kcLocaleDropDownClass"))}>
+        <div className="background--blue--900">
+            <div className="smartup-line"></div>
+            {enabledLanguages.length > 1 && (
+                <div className="d-flex">
+                    <div className="login-page__top">
+                        <div className="login-page-language" id="kc-locale">
+                            <div id="kc-locale-wrapper">
+                                <div id="kc-locale-dropdown" className={clsx("menu-button-links")}>
+                                    <span className="login-page-language__title"></span>
                                     <button
                                         tabIndex={1}
-                                        id="kc-current-locale-link"
+                                        className="login-page-language__button" 
+                                        id="kc-current-locale-link"                                         
                                         aria-label={msgStr("languages")}
                                         aria-haspopup="true"
                                         aria-expanded="false"
-                                        aria-controls="language-switch1"
-                                    >
-                                        {currentLanguage.label}
-                                        <FontAwesomeIcon icon={faCaretDown} className={css({ marginLeft: '5px' })} />
+                                        aria-controls="language-switch1">
+                                            <span className="login-page-language__lang">{currentLanguage.label}</span>
+                                            <FontAwesomeIcon icon={faCaretDown} className={css({ marginLeft: '5px' })} />
                                     </button>
-                                    <ul
-                                        role="menu"
+                                    <div role="menu"
                                         tabIndex={-1}
                                         aria-labelledby="kc-current-locale-link"
                                         aria-activedescendant=""
                                         id="language-switch1"
-                                        className={kcClsx("kcLocaleListClass")}
-                                    >
-                                        {enabledLanguages.map(({ languageTag, label, href }, i) => (
-                                            <li key={languageTag} className={kcClsx("kcLocaleListItemClass")} role="none">
-                                                <a role="menuitem" id={`language-${i + 1}`} className={kcClsx("kcLocaleItemClass")} href={href}>
-                                                    {label}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+                                        className="login-page-lang-options">
+                                            {enabledLanguages.map(({ languageTag, label, href }, i) => (
+                                                <li key={languageTag} role="none">
+                                                    <a role="menuitem" id={`language-${i + 1}`}  href={href}>
+                                                        {label}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                    </div>     
+                                </div>                          
                             </div>
                         </div>
-                    )}
+                    </div>
                 </div>
-            </header>
+            )}
             <div className="login-container">
                 <div className="card-container">
                     <div className={css({
@@ -202,7 +202,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                                             display: "flex",
                                             justifyContent: "center",
                                             alignItems: "center",
-                                            marginTop: theme.spacing(3)
+                                            // marginTop: theme.spacing(3)
                                         })}>
                                         {infoNode}
                                     </div>
@@ -220,7 +220,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                 <p className={css({
                     fontSize: "10px",
                 })}>
-                    Copyright © 2012-{currentYear},{""}
+                    Copyright © 2012-{currentYear},{" "}
                     <a href="https://smartup.uz" target="_smartup">Green White Solutions LLC.</a>
                     <br />
                     All rights reserved.

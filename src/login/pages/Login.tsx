@@ -17,9 +17,10 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Link, Typography } from "@mui/material";
+import { Link } from "@mui/material";
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import "./Login.css";
 
 export default function Login(props: PageProps<Extract<KcContext, { pageId: "login.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
@@ -47,16 +48,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
             headerNode={msg("loginAccountTitle")}
             displayInfo={realm.password && realm.registrationAllowed && !registrationDisabled}
             infoNode={
-                <div>
-                    <div>
-                        <Typography variant="body1">
-                            {msg("noAccount")}{" "}
-                            <Link tabIndex={8} href="https://smartup.uz/smartup_online">
-                                {msg("doRegister")}
-                            </Link>
-                        </Typography>
-                    </div>
-                </div>
+                <></>
             }
             socialProvidersNode={
                 <>
@@ -222,6 +214,13 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                         </form>
                     )}
                 </div>
+            </div>
+            <span>&nbsp;</span>
+            <div className="register" id="register-container">
+                <div className="register__title">
+                    <span id="register_title">{msg("noAccount")}{" "}</span>
+                </div>
+                <a className="register__button" id="register" target="_blank" href="https://smartup.uz/smartup_online">{msg("doRegister")}</a>
             </div>
         </Template>
     );

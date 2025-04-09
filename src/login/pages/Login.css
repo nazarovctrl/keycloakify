@@ -1,0 +1,38 @@
+#register-container {
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.register__title {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    width: 50%;
+}
+
+.register__button {
+    background-color: transparent;
+    color: #18181b;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 400;
+    outline: none;
+    border: 1.2px solid #ececec;
+    box-shadow: 1px 1px 4px #ffffff;
+    border-radius: 6.5px;
+    padding: 8.5px;
+    width: 50%;
+    transition: all 0.2s;
+}
+
+.register__button:hover {
+    background-color: #f4f4f5;
+    color: #18181b;
+}
+
+.register {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
